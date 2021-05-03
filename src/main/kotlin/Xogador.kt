@@ -1,24 +1,47 @@
-class Xogador {
+class Xogador : Seleccion {
 
-    var id = 0
-    var nome = " "
-    var apelido = " "
-    var edade = 0
-    var dorsal = 0
-    var demarcación = " "
+    var dorsal:Int=0
+    var demarcacion:String="Jugador"
 
-    fun concentrarse():Unit{
-
+    /**
+     * @param id numero de identificacion
+     * @param nome nombre
+     * @param apelido apelido
+     * @param edade años
+     * @param dorsal numero camiseta
+     * @param demarcacion posición jugador
+     */
+    constructor(id: Int, nome: String, apelido: String, edade: Int, dorsal: Int, demarcacion: String) : super(
+        id,
+        nome,
+        apelido,
+        edade
+    ) {
+        this.dorsal = dorsal
+        this.demarcacion = demarcacion
     }
 
-    fun viaxar(país:String){
-        println("alemania")
-    }
-    fun xogarPartido(){
 
+    fun xogarPartido():Unit{
+        println("JUEGA")
     }
-    fun entrenar(){
+    fun entrenar():Unit{
+        println("ENTRENA")
+    }
 
+    /**
+     * @param tiempoConcentracion Tiempo en minutos de la duracion de la concentración
+     */
+    override fun concentrarse(tiempoConcentracion: Int): String {
+        return "A selección concéntrase durante $tiempoConcentracion minutos"
+    }
+
+    override fun viaxar(pais: String): String {
+        return return  "Viaxan os xogadores a $pais"
+    }
+
+    override fun toString(): String {
+        return super.toString()+", dorsal=$dorsal, demarcacion='$demarcacion'"
     }
 
 }

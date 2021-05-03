@@ -1,21 +1,28 @@
-class Adestrador {
+class Adestrador : Seleccion {
 
-    var id = 0
-    var nome = ""
-    var apelido = ""
-    var edade = 0
-    var idFederacion = 0
+    var idFederacion:String="0a"
 
-    fun concentrarse(){
-
+    constructor(id: Int, nome: String, apelido: String, edade: Int, idFederacion: Int) : super(
+        id,
+        nome,
+        apelido,
+        edade
+    ) {
+        this.idFederacion = idFederacion.toString()
     }
-
-    fun viaxar (pais:String){
-
+    fun dirixirPartido():Unit{
+        println("Dirixe")
     }
-
-    fun dirixirPartido (){
-
+    fun dirixirAdestramento():Unit{
+        println("Dirixe Adestramento")
     }
-
+    override fun concentrarse(tiempoConcentracion: Int): String {
+        return "A selección concéntrase durante $tiempoConcentracion minutos"
+    }
+    override fun viaxar(pais: String): String {
+        return  "Viaxan os xogadores a $pais"
+    }
+    override fun toString(): String {
+        return super.toString()+", idFederacion='$idFederacion'"
+    }
 }
